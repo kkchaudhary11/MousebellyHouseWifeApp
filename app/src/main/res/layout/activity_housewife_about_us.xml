@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_doodle"
+    android:fillViewport="true"
+    >
+
+
+
+    <Button
+        android:layout_below="@+id/imageView"
+        android:id="@+id/cancel_cheque"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/customborder"
+        android:backgroundTint="@color/Amulet"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:textColor="@android:color/white"
+        android:text="Select Image"
+
+        />
+
+    <ImageView
+        android:layout_marginTop="20dp"
+        android:background="@drawable/customborder"
+        android:id="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:padding="8dp"
+        android:layout_width="320dp"
+        android:layout_height="200dp" />
+
+    <TextView
+        android:layout_below="@+id/cancel_cheque"
+        android:id="@+id/error_select_image"
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:text="Please Select Image"
+        android:textColor="@color/Roman"
+        />
+
+    <TextView
+        android:id="@+id/image_info_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select The cancel Cheque Image "
+        android:textColor="@color/Amulet"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        />
+
+
+    <Button
+        android:id="@+id/signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign up"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/button"
+        android:textColor="@android:color/white"
+        />
+
+
+
+</RelativeLayout>

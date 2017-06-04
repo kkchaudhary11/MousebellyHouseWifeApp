@@ -1,0 +1,227 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_doodle"
+    android:fillViewport="true">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/first"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/edittextstyle">
+
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="Enter Username"
+                android:singleLine="true"
+                android:inputType="textCapWords"
+                android:maxLines="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/errusername"
+                android:textColor="@color/Roman"
+                android:visibility="gone"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_below="@+id/first"
+            android:id="@+id/second"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="16dp"
+            android:padding="10dp"
+            android:background="@drawable/edittextstyle">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/email"
+                android:hint="Enter Email ID"
+                android:maxLines="1"
+                android:inputType="textEmailAddress"
+                android:background="@android:color/transparent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/erroremail"
+                android:textColor="@color/Roman"
+                android:visibility="gone"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_below="@+id/second"
+            android:id="@+id/third"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="16dp"
+            android:padding="10dp"
+            android:background="@drawable/edittextstyle">
+
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Password"
+                android:maxLines="1"
+                android:inputType="textPassword"
+                android:background="@android:color/transparent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/pass"
+                android:textColor="@color/Roman"
+                android:visibility="gone"
+                android:textSize="14dp" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_below="@+id/third"
+            android:id="@+id/forth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="16dp"
+            android:padding="10dp"
+            android:background="@drawable/edittextstyle">
+
+            <!-- <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Confirm Password : "
+                 android:textStyle="bold"
+                 android:textColor="#000000"
+                 android:textSize="16dp"/>-->
+
+            <EditText
+                android:id="@+id/confrmpass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:maxLines="1"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:background="@android:color/transparent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cnf"
+                android:textColor="@color/Roman"
+                android:visibility="gone"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_below="@id/forth"
+            android:id="@+id/fifth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="16dp"
+            android:padding="10dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/edittextstyle">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter 10 Digit Phone Number"
+                android:inputType="number"
+                android:maxLength="10"
+                android:maxLines="1"
+                android:id="@+id/phone"
+                android:background="@android:color/transparent" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/phn"
+                android:textColor="@color/Roman"
+                android:visibility="gone"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_below="@id/fifth"
+            android:id="@+id/sixth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="16dp"
+            android:padding="10dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/edittextstyle">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+
+                android:hint="My Story"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:textSize="17sp"
+                android:id="@+id/aboutme"
+                android:background="@android:color/transparent" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sixth">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/nextmap"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/button"
+                    android:textColor="@color/Rose_White"
+                    android:text="Next" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</ScrollView>
