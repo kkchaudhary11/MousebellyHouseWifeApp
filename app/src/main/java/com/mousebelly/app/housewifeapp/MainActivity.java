@@ -187,6 +187,9 @@ public class MainActivity extends AppCompatActivity
         actionBar.setDisplayOptions(actionBar.getDisplayOptions()
                 | ActionBar.DISPLAY_SHOW_CUSTOM);
 
+
+        actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_texture));
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         ActionBar.LayoutParams titleLayout = new ActionBar.LayoutParams(

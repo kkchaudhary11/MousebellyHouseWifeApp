@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#7c5a7e</color>
-    <color name="colorPrimaryDark">#7c5a7e</color>
+    <color name="colorPrimaryDark">#9b71b9</color>
     <color name="colorAccent">#769e70</color>
 
     <color name="Amulet">#769e70</color>

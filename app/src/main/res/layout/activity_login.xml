@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="30dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/bg_texture"
         android:gravity="center_horizontal">
 
         <LinearLayout
