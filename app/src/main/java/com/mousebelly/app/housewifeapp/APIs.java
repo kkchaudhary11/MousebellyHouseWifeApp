@@ -20,8 +20,18 @@ public class APIs {
     //AddProduct
     public static final String prod_approval_prod_approval = DOMAIN + "/prod_approval/prod_approval";
 
-    //GetProductData
+    //GetProductData accpeted
     public static final String prod_approval_prod_approval3 = DOMAIN + "/prod_approval/prod_approval3/";
+
+    public static final String order_order = DOMAIN + "/order/order";
+
+    //reject
+    public static final String order_order2 = DOMAIN + "/order/order2";
+
+    //cooked
+    public static final String order_order1 = DOMAIN + "/order/order1";
+
+
 
 
 

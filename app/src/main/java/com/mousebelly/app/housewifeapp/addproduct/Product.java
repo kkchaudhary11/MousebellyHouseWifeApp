@@ -24,6 +24,7 @@ public class Product {
     private String HouseWifePhone;
     private String Star;
     private String SystemID;
+    private String Type;
 
     public String getProd_name() {
         return Prod_name;
@@ -145,14 +146,22 @@ public class Product {
         SystemID = systemID;
     }
 
+    public String getType() {
+        return Type;
+    }
+
+    public void setType(String type) {
+        Type = type;
+    }
 
     JSONObject tojson() throws JSONException {
         JSONObject jobj = new JSONObject();
-        jobj.put("emailnaam2", "email");
+        jobj.put("emailnaam2", this.getHouseWifeEmail());
         jobj.put("Prod_name", this.getProd_name() );
         jobj.put("Prod_category", this.getProd_cat());
         jobj.put("Description", this.getDescription());
         jobj.put("Price", this.getPrice());
+        jobj.put("Type",this.getType()); //VEG/NONVEG
 
         jobj.put("prodimage_data_base64", this.getImage().replaceAll("\\\\","")  );
 

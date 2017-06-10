@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,6 +16,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mousebelly.app.housewifeapp.IdManager;
+import com.mousebelly.app.housewifeapp.MainActivity;
+import com.mousebelly.app.housewifeapp.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -241,13 +244,12 @@ public class ProductDetails {
         IdManager.addId("ProductDetailsProductName" + this.Id);
         this.productNameTextView.setId( (int)IdManager.stringToIdMap.get("ProductDetailsProductName" + this.Id) );
 
-        shape =  new GradientDrawable();
+        /*shape =  new GradientDrawable();
         shape.setCornerRadius( 8 );
-        shape.setColor(Color.RED);
+        shape.setColor(Color.RED);*/
 
-        this.productNameTextView.setBackground(shape);
         this.productNameTextView.setPadding(0,0,0,0);
-        this.productNameTextView.setTextColor(Color.WHITE);
+        this.productNameTextView.setTextColor(ContextCompat.getColor(MainActivity.context, R.color.Amulet));
         // Item Start Time Init
     }
 
@@ -255,7 +257,7 @@ public class ProductDetails {
     {
 
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-        params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+        params.addRule(RelativeLayout.CENTER_HORIZONTAL);
         params.setMargins(10,10,10,10);
         this.itemImage.setLayoutParams(params);
 
@@ -330,7 +332,6 @@ public class ProductDetails {
             }
         });
 
-        //this.productDetailsLayout.setPadding(10,10,10,10);
 
         return this.productDetailsLayout;
     }

@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.view.LayoutInflater;
@@ -18,6 +19,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -30,6 +33,7 @@ import com.mousebelly.app.housewifeapp.CustomToast;
 import com.mousebelly.app.housewifeapp.MainActivity;
 import com.mousebelly.app.housewifeapp.R;
 import com.mousebelly.app.housewifeapp.Server;
+import com.mousebelly.app.housewifeapp.myfood.MyFood;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -55,6 +59,9 @@ public class AddProduct extends Fragment{
     static ImageView imageView;
     EditText ProdName,ProdDescription, ProdPrice;
     ProgressDialog progressDialog;
+    RadioGroup typeoption;
+    RadioButton radioButton;
+    RadioButton veg;
 
 
     public AddProduct() {
@@ -80,6 +87,13 @@ public class AddProduct extends Fragment{
         ProdPrice =(EditText)v.findViewById(R.id.prod_price);
         imageView = ((ImageView)v.findViewById(R.id.food_imageView));
 
+        typeoption = (RadioGroup)v.findViewById(R.id.select_type);
+        radioButton = (RadioButton)v.findViewById(R.id.veg);
+        veg = (RadioButton)v.findViewById(R.id.veg);
+
+        typeoption.check(veg.getId());
+        product.setImage("empty");
+
         progressDialog = CustomProgressDialog.getDialog(MainActivity.context,"Saving");
 
         MainActivity.fab.setVisibility(View.INVISIBLE);
@@ -103,6 +117,7 @@ public class AddProduct extends Fragment{
                 String Prod_description = ProdDescription.getText().toString();
                 String Prod_price = ProdPrice.getText().toString();
 
+
                 if(TextUtils.isEmpty(Product_name)){
                     ProdName.setError("This field is required");
                     return;
@@ -120,7 +135,7 @@ public class AddProduct extends Fragment{
                     CustomToast.Toast(MainActivity.context,"Enter Valid Price");
                     return;
                 }
-                if(product.getImage()==null && product.getImage().equals("")){
+                if(product.getImage().equals("empty")){
                     CustomToast.Toast(MainActivity.context,"Image is required");
                     return;
                 }
@@ -128,6 +143,10 @@ public class AddProduct extends Fragment{
                 product.setProd_name(Product_name);
                 product.setDescription(Prod_description);
                 product.setPrice(Prod_price);
+
+                int selectedId = typeoption.getCheckedRadioButtonId();
+                radioButton = (RadioButton) v.findViewById(selectedId);
+                product.setType(radioButton.getText().toString());
 
                  new SaveFood().execute();
             }
@@ -279,6 +298,7 @@ public class AddProduct extends Fragment{
         protected Void doInBackground(Void... voids) {
 
             try {
+                System.out.println("Output JOSN : " + product.tojson());
                 Server.s.post(APIs.prod_approval_prod_approval, product.tojson());
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -290,6 +310,13 @@ public class AddProduct extends Fragment{
         protected void onPostExecute(Void res) {
             super.onPostExecute(res);
             progressDialog.dismiss();
+
+            MyFood myFood = new MyFood();
+            FragmentManager manager = getActivity().getSupportFragmentManager();
+            manager.beginTransaction().replace(R.id.relative_layout_fragment,myFood,myFood.getTag()).commit();
+
+            CustomToast.Toast(MainActivity.context,"Send For Approval");
+
         }
 
     }

@@ -12,12 +12,11 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
+import com.mousebelly.app.housewifeapp.Login.LoginActivity;
 import com.mousebelly.app.housewifeapp.MainActivity;
 import com.mousebelly.app.housewifeapp.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class MealPlanner extends Fragment {
 
     View v;
@@ -48,8 +47,6 @@ public class MealPlanner extends Fragment {
 
         mealPlanLinearLayout = (LinearLayout) v.findViewById(R.id.MealPlanLinearLayout);
 
-
-
         new LoadProducts().execute();
         // Inflate the layout for this fragment
         return v;
@@ -67,26 +64,22 @@ public class MealPlanner extends Fragment {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            GetProductsData gpd = new GetProductsData("sunita@gmail.com",MainActivity.context,productsDataLayout);
+            GetProductsData gpd = new GetProductsData(LoginActivity.USERID,MainActivity.context,productsDataLayout);
             gpd.loadData();
             return null;
-
         }
-
 
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             new LoadMeal().execute();
         }
-
-
     }
 
 
     public class LoadMeal extends AsyncTask<Void, Void, Void> {
 
-        GetMealPlan gmp = new GetMealPlan("sunita@gmail.com",MainActivity.context,mealPlanLinearLayout);
+        GetMealPlan gmp = new GetMealPlan(LoginActivity.USERID,MainActivity.context,mealPlanLinearLayout);
 
         @Override
         protected void onPreExecute(){
@@ -100,15 +93,12 @@ public class MealPlanner extends Fragment {
             return null;
         }
 
-
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             gmp.loadData();
             pg.setVisibility(View.GONE);
         }
-
-
     }
 
 }

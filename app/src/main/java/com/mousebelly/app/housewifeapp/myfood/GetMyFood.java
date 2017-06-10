@@ -63,7 +63,7 @@ public class GetMyFood {
     public void showFood(){
 
         if (foodUnits.isEmpty()) {
-            RelativeLayout rl = EmptyMessage.show(MainActivity.context, "No Favourite Item");
+            RelativeLayout rl = EmptyMessage.show(MainActivity.context, "No Item");
             MyFood.productsLayout.addView(rl);
             return;
         }

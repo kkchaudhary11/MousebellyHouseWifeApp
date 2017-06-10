@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.ShapeDrawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.view.DragEvent;
 import android.view.View;
@@ -20,6 +21,8 @@ import android.widget.Toast;
 
 import com.mousebelly.app.housewifeapp.APIs;
 import com.mousebelly.app.housewifeapp.IdManager;
+import com.mousebelly.app.housewifeapp.MainActivity;
+import com.mousebelly.app.housewifeapp.R;
 import com.mousebelly.app.housewifeapp.Server;
 
 import org.json.JSONArray;
@@ -608,7 +611,7 @@ public class GetMealPlan{
             Paint paint = rectShapeDrawable.getPaint();
 
             // set border color, stroke and stroke width
-            paint.setColor(Color.GRAY);
+            paint.setColor(ContextCompat.getColor(MainActivity.context, R.color.Amulet));
             paint.setStyle(Paint.Style.STROKE);
             paint.setStrokeWidth(5); // you can change the value of 5
             paint.setShadowLayer(10, 10, 10, Color.BLACK);
@@ -638,33 +641,12 @@ public class GetMealPlan{
             dateRelativeLayout.setTag( dateVal );
 
             dateValue.setText(formatter.format(dt).toString());
-            dateValue.setPadding(10, 10, 10, 10);
-            dateValue.setWidth(100);
-            dateValue.setTextColor(Color.BLACK);
-            dateValue.setBackgroundColor(Color.WHITE);
+            dateValue.setWidth(250);
+            dateValue.setTextColor(ContextCompat.getColor(MainActivity.context,R.color.Bossanova));
+            dateValue.setPadding(10,50,10,50);
 
             dateRelativeLayout.addView(dateValue);
 
-//            MealPlanUnit mpu = new MealPlanUnit(this.c);
-//            mpu.setProdId("product21401");
-//            mpu.setStartEndTime("1000","1100");
-//            mpu.setImage( "http://res.cloudinary.com/mousebelly/image/upload/v1489592220/ztvhakzotfdlujkq4inx.png" );
-//            RelativeLayout rl = mpu.draw();
-//            addViewToLayout(dateRelativeLayout,rl,true);
-//
-//            mpu = new MealPlanUnit(this.c);
-//            mpu.setProdId("product91941");
-//            mpu.setStartEndTime("1200","1300");
-//            mpu.setImage( "http://res.cloudinary.com/mousebelly/image/upload/v1489240594/xmi7hs7g6bugk4arawzc.png" );
-//            rl = mpu.draw();
-//            addViewToLayout(dateRelativeLayout,rl,true);
-//
-//            mpu = new MealPlanUnit(this.c);
-//            mpu.setProdId("product83032");
-//            mpu.setStartEndTime("1400","1600");
-//            mpu.setImage( "http://res.cloudinary.com/mousebelly/image/upload/v1489592368/xduzggqnhovrj4bogdwl.png" );
-//            rl = mpu.draw();
-//            addViewToLayout(dateRelativeLayout,rl,true);
 
             dateRelativeLayout.setOnDragListener(new View.OnDragListener() {
                 @Override

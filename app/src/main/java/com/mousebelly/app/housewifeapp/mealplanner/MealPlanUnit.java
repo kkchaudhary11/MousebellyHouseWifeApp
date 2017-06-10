@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,6 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mousebelly.app.housewifeapp.IdManager;
+import com.mousebelly.app.housewifeapp.MainActivity;
+import com.mousebelly.app.housewifeapp.R;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -191,37 +194,32 @@ public class MealPlanUnit {
         IdManager.addId("MealPlanUnitStartTime" + this.Id);
         this.startTimeTextView.setId( (int)IdManager.stringToIdMap.get("MealPlanUnitStartTime" + this.Id) );
 
-        shape =  new GradientDrawable();
+ /*       shape =  new GradientDrawable();
         shape.setCornerRadius( 8 );
-        shape.setColor(Color.RED);
-
+        shape.setColor(Color.RED);*/
+/*
         this.startTimeTextView.setBackground(shape);
-        this.startTimeTextView.setPadding(0,0,0,0);
-        this.startTimeTextView.setTextColor(Color.WHITE);
+        this.startTimeTextView.setPadding(0,0,0,0);*/
+        this.startTimeTextView.setTextColor(ContextCompat.getColor(MainActivity.context, R.color.Affair));
         // Item Start Time Init
 
         this.endTimeTextView = new TextView(this.c);
         IdManager.addId("MealPlanUnitEndTime" + this.Id);
         this.endTimeTextView.setId( (int)IdManager.stringToIdMap.get("MealPlanUnitEndTime" + this.Id) );
-
+/*
         shape =  new GradientDrawable();
         shape.setCornerRadius( 8 );
         shape.setColor(Color.RED);
 
         this.endTimeTextView.setBackground(shape);
-        this.endTimeTextView.setPadding(0,0,0,0);
-        this.endTimeTextView.setTextColor(Color.WHITE);
+        this.endTimeTextView.setPadding(0,0,0,0);*/
+        this.endTimeTextView.setTextColor(ContextCompat.getColor(MainActivity.context, R.color.Affair));
 
         this.itemDelete = new Button(this.c);
         this.itemDelete.setText("Delete");
 
-        shape =  new GradientDrawable();
-        shape.setCornerRadius( 8 );
-        shape.setColor(Color.BLUE);
 
-        this.itemDelete.setBackground(shape);
-        this.itemDelete.setPadding(0,0,0,0);
-        this.itemDelete.setTextColor(Color.WHITE);
+        this.itemDelete.setTextColor(ContextCompat.getColor(MainActivity.context,R.color.Roman));
     }
     //
 
@@ -250,8 +248,7 @@ public class MealPlanUnit {
         //params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         params.addRule(RelativeLayout.RIGHT_OF , this.itemImage.getId() );
         params.addRule(RelativeLayout.BELOW,this.startTimeTextView.getId());
-        params.setMargins(10,10,10,10);
-        this.itemDelete.setPadding(10,10,10,10);
+        params.setMargins(10,0,10,10);
         this.itemDelete.setLayoutParams(params);
 
         //

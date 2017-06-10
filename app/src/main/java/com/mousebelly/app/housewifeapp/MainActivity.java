@@ -1,6 +1,5 @@
 package com.mousebelly.app.housewifeapp;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -27,6 +26,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mousebelly.app.housewifeapp.addproduct.AddProduct;
+import com.mousebelly.app.housewifeapp.liveorders.LiveOrders;
 import com.mousebelly.app.housewifeapp.mealplanner.MealPlanner;
 import com.mousebelly.app.housewifeapp.myfood.MyFood;
 
@@ -156,6 +156,10 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.live_order) {
+
+            LiveOrders liveOrders = new LiveOrders();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(R.id.relative_layout_fragment,liveOrders,liveOrders.getTag()).commit();
             // Handle the camera action
         }else if(id == R.id.my_food){
             MyFood myFood = new MyFood();
