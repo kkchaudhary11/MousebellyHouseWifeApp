@@ -1,5 +1,7 @@
 package com.mousebelly.app.housewifeapp.addproduct;
 
+import com.mousebelly.app.housewifeapp.Login.LoginActivity;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -14,16 +16,6 @@ public class Product {
     private String price;
     private String Description;
     private String Image;
-    private String AddProductSystemID;
-    private String Rating;
-    private String FeedBack;
-    private String isApproved;
-    private String isRejected;
-    private String HouseWifeEmail;
-    private String HouseWifeName;
-    private String HouseWifePhone;
-    private String Star;
-    private String SystemID;
     private String Type;
 
     public String getProd_name() {
@@ -66,85 +58,6 @@ public class Product {
         Image = image;
     }
 
-    public String getAddProductSystemID() {
-        return AddProductSystemID;
-    }
-
-    public void setAddProductSystemID(String addProductSystemID) {
-        AddProductSystemID = addProductSystemID;
-    }
-
-    public String getRating() {
-        return Rating;
-    }
-
-    public void setRating(String rating) {
-        Rating = rating;
-    }
-
-    public String getFeedBack() {
-        return FeedBack;
-    }
-
-    public void setFeedBack(String feedBack) {
-        FeedBack = feedBack;
-    }
-
-    public String getIsApproved() {
-        return isApproved;
-    }
-
-    public void setIsApproved(String isApproved) {
-        this.isApproved = isApproved;
-    }
-
-    public String getIsRejected() {
-        return isRejected;
-    }
-
-    public void setIsRejected(String isRejected) {
-        this.isRejected = isRejected;
-    }
-
-    public String getHouseWifeEmail() {
-        return HouseWifeEmail;
-    }
-
-    public void setHouseWifeEmail(String houseWifeEmail) {
-        HouseWifeEmail = houseWifeEmail;
-    }
-
-    public String getHouseWifeName() {
-        return HouseWifeName;
-    }
-
-    public void setHouseWifeName(String houseWifeName) {
-        HouseWifeName = houseWifeName;
-    }
-
-    public String getHouseWifePhone() {
-        return HouseWifePhone;
-    }
-
-    public void setHouseWifePhone(String houseWifePhone) {
-        HouseWifePhone = houseWifePhone;
-    }
-
-    public String getStar() {
-        return Star;
-    }
-
-    public void setStar(String star) {
-        Star = star;
-    }
-
-    public String getSystemID() {
-        return SystemID;
-    }
-
-    public void setSystemID(String systemID) {
-        SystemID = systemID;
-    }
 
     public String getType() {
         return Type;
@@ -156,7 +69,7 @@ public class Product {
 
     JSONObject tojson() throws JSONException {
         JSONObject jobj = new JSONObject();
-        jobj.put("emailnaam2", this.getHouseWifeEmail());
+        jobj.put("emailnaam2", LoginActivity.USERID);
         jobj.put("Prod_name", this.getProd_name() );
         jobj.put("Prod_category", this.getProd_cat());
         jobj.put("Description", this.getDescription());

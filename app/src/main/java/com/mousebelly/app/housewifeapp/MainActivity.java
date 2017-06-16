@@ -26,6 +26,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mousebelly.app.housewifeapp.addproduct.AddProduct;
+import com.mousebelly.app.housewifeapp.feedback.Feedback;
 import com.mousebelly.app.housewifeapp.liveorders.LiveOrders;
 import com.mousebelly.app.housewifeapp.mealplanner.MealPlanner;
 import com.mousebelly.app.housewifeapp.myfood.MyFood;
@@ -55,8 +56,10 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                AddProduct addProduct = new AddProduct();
+                FragmentManager manager = getSupportFragmentManager();
+                manager.beginTransaction().replace(R.id.relative_layout_fragment,addProduct,addProduct.getTag()).commit();
+
             }
         });
 
@@ -178,6 +181,10 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.feedback) {
 
+            Feedback feedback = new Feedback();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(R.id.relative_layout_fragment,feedback,feedback.getTag()).commit();
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -249,15 +256,15 @@ public class MainActivity extends AppCompatActivity
         /////////////////////////
 
 
-        //TODO uncomment for return to main activity on click
-       /* maintitle.setOnClickListener(new View.OnClickListener() {
+
+        maintitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Products products = new Products();
+                MyFood myFood = new MyFood();
                 FragmentManager manager = getSupportFragmentManager();
-                manager.beginTransaction().replace(R.id.relative_layout_fragment,products, products.getTag()).commit();
+                manager.beginTransaction().replace(R.id.relative_layout_fragment,myFood, myFood.getTag()).commit();
             }
-        });*/
+        });
 
     }
 
